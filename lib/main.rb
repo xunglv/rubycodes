@@ -1,1 +1,1 @@
-require "testxml.rb"
+require "./tools/GiaphaParser/giapha_parser.rb"

@@ -37,6 +37,6 @@ background_every_n_seconds(INTERVAL_TIME) {
 }
 
 
-
+puts "chuong trinh chinh da thoat"
       
   
