@@ -1,0 +1,26 @@
+﻿Open:	2010-11-15 ~ 2010-11-23 Ho Chi Minh City "Saigon", Vietnam
+Vessel IMO:	8400880
+Vessel Name:	Tan Binh 26*
+Built:	1984-06-01
+Age:	26 year(s)
+Flag:	Tuvalu
+Class:	Vires
+Net Tonnage:	2,226 MT
+Gross Tonnage:	5,462 MT
+DeadWeight:	7,013 MT
+Cubic Capacity(Grain):	13000.00 m3
+Cubic Capacity(Bale):	12,106.00 m3
+Summber Draft:	7.55 m
+LOA:	98.18 m
+Beam:	18.00 m
+TPC:	0.00  MT
+Vessel Type:	SDBC
+No. of Hold/Hatch:	2/2
+Gear:	4  (Max. 15.00 MT SWL)
+Hatch Types:	MacGregor Type
+Australian Suitable	
+Other vessel details:	Vinabros Shipbrokers Ltd
+Vessel Sailing:	
+*The above vessel sailing route is for your reference only. Sailing route may change from time to time without notice.
+Vessel Type:	General Cargo Ship
+Operator:	Indo Sino Group / Salariya Shipping
