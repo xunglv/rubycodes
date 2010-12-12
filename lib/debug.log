@@ -1,0 +1,114 @@
+# Logfile created on 2010-12-11 14:36:25 +0700 by logger.rb/25413
+D, [2010-12-11T14:36:25.529139 #3789] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-12-11T14:36:25.529689 #3789] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-12-11T14:36:25.529889 #3789] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-12-11T14:36:25.589348 #3789] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-12-11T14:36:33.061177 #3797] DEBUG -- :   [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-12-11T14:36:33.061531 #3797] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-12-11T14:36:33.063365 #3797] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-12-11T14:36:33.095727 #3797] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-12-11T14:42:08.755459 #3891] DEBUG -- :   [1m[36mSQL (0.4ms)[0m  [1mselect sqlite_version(*)[0m
+D, [2010-12-11T14:42:08.755913 #3891] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  CREATE TABLE "Vocabularies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "keyword" varchar(255), "meaning" varchar(255)) 
+D, [2010-12-11T14:42:08.755999 #3891] DEBUG -- : SQLite3::SQLException: table "Vocabularies" already exists: CREATE TABLE "Vocabularies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "keyword" varchar(255), "meaning" varchar(255)) 
+D, [2010-12-11T14:42:37.271359 #3900] DEBUG -- :   [1m[36mSQL (0.5ms)[0m  [1mselect sqlite_version(*)[0m
+D, [2010-12-11T14:42:37.272210 #3900] DEBUG -- :   [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-12-11T14:42:37.282547 #3900] DEBUG -- :   [1m[36mSQL (10.1ms)[0m  [1mDROP TABLE "Vocabularies"[0m
+D, [2010-12-11T14:42:37.284152 #3900] DEBUG -- :   [1m[35mSQL (1.3ms)[0m  CREATE TABLE "Vocabularies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "keyword" varchar(255), "meaning" varchar(255)) 
+D, [2010-12-11T14:42:37.292155 #3900] DEBUG -- :   [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-12-11T14:42:37.292566 #3900] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-12-11T14:42:37.292964 #3900] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-12-11T14:42:37.330760 #3900] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-12-11T14:46:45.515466 #3990] DEBUG -- :   [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-12-11T14:46:45.532884 #3990] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+D, [2010-12-11T14:46:45.533555 #3990] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mCREATE TABLE "Vocabularies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "keyword" varchar(255), "meaning" varchar(255)) [0m
+D, [2010-12-11T14:46:45.533693 #3990] DEBUG -- : SQLite3::SQLException: table "Vocabularies" already exists: CREATE TABLE "Vocabularies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "keyword" varchar(255), "meaning" varchar(255)) 
+D, [2010-12-11T14:56:57.976146 #4145] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-12-11T14:56:57.976637 #4145] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-12-11T14:56:57.976989 #4145] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-12-11T14:56:58.016367 #4145] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-12-11T14:59:01.388556 #4171] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-12-11T14:59:01.388824 #4171] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-12-11T14:59:01.389013 #4171] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-12-11T14:59:01.418604 #4171] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-12-11T15:00:23.833390 #4190] DEBUG -- :   [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-12-11T15:00:23.833814 #4190] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-12-11T15:00:23.834142 #4190] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-12-11T15:00:23.865288 #4190] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
