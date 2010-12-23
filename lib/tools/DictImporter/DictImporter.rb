@@ -14,7 +14,6 @@ DB_NAME = "test.db"
 @file_dir = File.expand_path(File.dirname(__FILE__))
 @db_path = @file_dir+"/db/"+DB_NAME
 
-
 if (!File.exist?(@db_path))
   SQLite3::Database.new(@db_path)
 end
@@ -23,7 +22,6 @@ end
 @DB = Sequel.connect(:adapter=>'sqlite', :host=>'localhost',
   :database=>@db_path)
 
-#@DB.loggers << Logger.new($stdout)
 
 def dec_val(str_base64)
   tmp = 0
@@ -34,26 +32,81 @@ def dec_val(str_base64)
   return tmp
 end
 
+#dict pk,name
+#word pk,word
+#meaning pk,word,dict,meaning
 
-def import_dict_from_file(dict_name, table_name)
-  puts "start importing dictionary"
+@dict_table_name = "dicts".to_sym
+@word_table_name = "words".to_sym
+@meaning_table_name = "meanings".to_sym
 
+def init_database
+  
+  table_name = "dicts"
   if !@DB.table_exists?(table_name)
     @DB.create_table table_name do
       primary_key :id
-      String :keyword, :unique=>true
-      String :meaning
+      String :string_id, :unique=>true
+      String :name #, :unique=>true
+      #String :meaning
+
     end
-    @DB.add_index(table_name, :keyword)
+    #@DB.add_index(table_name, :name)
   end
 
+  table_name = "words"
+  if !@DB.table_exists?(table_name)
+    @DB.create_table table_name do
+      primary_key :id
+      String :word, :unique=>true
+      #String :meaning
+    end
+    @DB.add_index(table_name, :word)
+  end
 
-  dict_table = @DB[table_name.to_sym]
-  base_path = @file_dir+"/"+dict_name
+  table_name = "meanings"
+  if !@DB.table_exists?(table_name)
+    @DB.create_table table_name do
+      primary_key :id
+      Integer :word
+      Integer :dict
+      String :meaning
+      
+      #String :meaning
+    end
+    @DB.add_index(table_name, :word)
+    @DB.add_index(table_name, :dict)
+  end
 
-  #puts base_path
-  dict_idx_path = base_path + "/" + "#{dict_name}.index"
-  dict_data_path = base_path + "/" +"#{dict_name}.dict"
+  
+end
+
+def import_dict_from_file(dict_name, dict_folder)
+  puts "start importing dictionary"
+
+  base_path = @file_dir+"/"+dict_folder
+  dict_idx_path = base_path + "/" + "#{dict_folder}.index"
+  dict_data_path = base_path + "/" +"#{dict_folder}.dict"
+
+  dict_table    = @DB[@dict_table_name];
+  dict_id = -1
+  begin
+    dict_id = dict_table.insert(:name=>dict_name.force_encoding("UTF-8"),
+    :string_id=>dict_folder.force_encoding("UTF-8"))
+  rescue
+    #dict_id = @DB['SELECT * FROM ? WHERE string_id = ?',@dict_table_name, dict_folder].first
+    dict_id = dict_table[:string_id=>dict_folder][:id]
+    #puts "count not insert dict  #{dict_id}"
+  end
+
+  if (dict_id<0)
+    puts "unknown error, could not find dict_id"
+    return
+  end
+
+  word_table    = @DB[@word_table_name];
+  meaning_table = @DB[@meaning_table_name];
+
 
   count = 0
   File.open(dict_data_path, "r") do |data_file|
@@ -72,33 +125,41 @@ def import_dict_from_file(dict_name, table_name)
         data_file.seek(entry_offset, IO::SEEK_SET)
         meaning = data_file.read(entry_len)
 
-            
+        word_id = -1
+        existed_meaning = nil
         begin
-          dict_table.insert(:keyword=>keyword, :meaning=>meaning.force_encoding("UTF-8"))
+          word_id = word_table.insert(:word=>keyword.force_encoding("UTF-8"))
         rescue Exception => e
-          #puts "cannot import keyword: #{keyword} msg #{e}"
-          #puts @DB.from(table_name){id>} # SELECT * FROM items WHERE (id > 2)
-          tb_word = @DB['SELECT * FROM ? WHERE keyword = ?',table_name, keyword].first
-          #tb_word = dict_table.filter('id = ?',1)
-          #puts "test: "+ tb_word[:keyword].to_s
-          if tb_word.count > 0
+          word_id = word_table[:word=>keyword][:id]
+          existed_meaning = meaning_table[:word=>word_id, :dict=>dict_id]
+          if !existed_meaning.nil?
+            existed_meaning = existed_meaning[:meaning]
+          end
+        end
+
+        if (word_id<0)
+          puts "unknown error, could not get word id"
+          return
+        end
           
-            total_meaning = meaning + "\n\n"
-            total_meaning += tb_word[:meaning]
-            dict_table[:keyword=>keyword] = {:meaning=>total_meaning}
-             # puts "keyword #{keyword} meaning: #{meaning} total: #{total_meaning}"
+        begin
+          if (!existed_meaning.nil?)
+            meaning = existed_meaning + "\n\n" +meaning.force_encoding("UTF-8");
+            meaning_table[:dict=>dict_id, :word=>word_id] = {:meaning=>meaning}
+            #puts "import tog hop row #{word_id}"
           else
-            puts e.to_s
+            meaning_table.insert(:dict=>dict_id,:word=>word_id, :meaning=>meaning)
           end
 
+          
+        rescue Exception => e
+          puts "could not insert meaning #{keyword} e: #{e}"
         end
 
         if count%1000==0
           puts "count: #{count}"
+          #return
         end
-        #if (count==100)
-        #  return
-        #end
             
       end
     end
@@ -108,6 +169,9 @@ def import_dict_from_file(dict_name, table_name)
 
 end
 
-import_dict_from_file("anhviet", "dict_en_vi")
+init_database
+import_dict_from_file("Vietnamese-English dictionary", "vietanh")
+#import_dict_from_file("English-Vietnamese dictionary")
+
 
 puts "all done"
