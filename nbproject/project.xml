@@ -5,7 +5,7 @@
         <data xmlns="http://www.netbeans.org/ns/ruby-project/1">
             <name>ruby-tools</name>
             <source-roots>
-                <root id="src.dir"/>
+                <root id="src.lib.dir" name="Source Files"/>
             </source-roots>
             <test-roots/>
         </data>
