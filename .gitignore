@@ -1,6 +1,11 @@
+*/dicts/*
+*/db_dicts/*
+*.dz
+*.gz
 *.db
 *.zip
 *.dict
+*.idx
 config/database.yml
 config/*.sphinx.conf
 config/s3_credentials.yml
