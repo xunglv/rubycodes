@@ -1,5 +1,6 @@
-*/dicts/*
-*/db_dicts/*
+*svn*
+*dicts*
+*.sqlite
 *.dz
 *.gz
 *.db
